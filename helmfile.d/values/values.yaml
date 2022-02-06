@@ -1,0 +1,12 @@
+renovate:
+  config: |
+    {
+      "repositories": ["patoarvizu/renovate-jsonnet-bundler-repro"],
+    }
+cronjob:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 3
+  successfulJobsHistoryLimit: 3
+env:
+  LOG_LEVEL: debug

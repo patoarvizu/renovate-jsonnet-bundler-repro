@@ -1,0 +1,18 @@
+repositories:
+- name: renovate
+  url: https://docs.renovatebot.com/helm-charts
+
+releases:
+- name: renovate
+  namespace: renovate
+  chart: renovate/renovate
+  version: 31.66.4
+  values:
+  - values/values.yaml
+  - values/values.yaml.gotmpl
+
+helmDefaults:
+  kubeContext: k3d-k3s-default
+  args:
+  - --kubeconfig
+  - {{ requiredEnv "HOME" }}/.k3d/k3s-default-config
